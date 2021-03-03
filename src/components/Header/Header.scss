@@ -1,0 +1,119 @@
+@import "../../assets/scss/colors";
+
+.Header {
+  &-image {
+    &::before {
+      content: "";
+      position: absolute;
+      width: 1200px;
+      height: 400px;
+      backdrop-filter: blur(5px);
+    }
+
+    height: 400px;
+    background-image: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)),
+    url('../../assets/img/netflixlist.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+  }
+
+  &-content {
+    position: absolute;
+    width: 1100px;
+    height: 30%;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .top-panel {
+      display: flex;
+      justify-content: space-between;
+
+      &-label {
+        font-size: 24px;
+        color: $pink;
+
+        span {
+          font-weight: bold;
+        }
+      }
+
+      .btn-add-movie {
+        cursor: pointer;
+        font-size: 20px;
+        border: none;
+        border-radius: 5px;
+        font-weight: 500;
+        background-color: rgba(181, 181, 181, .4);
+        padding: 8px 20px;
+        letter-spacing: 1px;
+        color: $pink;
+
+        &:hover {
+          background-color: rgb(89, 89, 89, .4);
+        }
+
+        &:active {
+          background-color: rgb(89, 89, 89, .1);
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .search-panel {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 60px;
+
+      &-label {
+        color: $white;
+        width: 100%;
+        font-size: 3em;
+        font-weight: 100;
+        margin-bottom: 30px;
+        letter-spacing: 2px;
+      }
+
+      &-input {
+        background-color: rgba(31, 31, 31, 0.6);
+        flex: 2;
+        font-size: 20px;
+        padding: 10px;
+        width: 50%;
+        border: none;
+        border-radius: 5px;
+      }
+
+      &-button {
+        color: $white;
+        background-color: $pink;
+        margin-left: 0.5em;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        font-weight: 400;
+        padding: 15px 0px;
+        width: 250px;
+        font-size: 25px;
+        letter-spacing: 1px;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: #f66370;
+        }
+
+        &:active {
+          background-color: #c4414d;
+        }
+
+        &:focus {
+          box-shadow: 0 0 0 0.2rem rgb(246 82 97 / 50%);
+        }
+      }
+    }
+  }
+}

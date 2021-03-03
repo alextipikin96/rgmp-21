@@ -1,0 +1,11 @@
+.MovieList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 0;
+
+  li {
+    list-style-type: none;
+    margin-bottom: 3em;
+  }
+};

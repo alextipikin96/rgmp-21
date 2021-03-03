@@ -7,7 +7,6 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const DIST_DIR = path.resolve(__dirname, "dist")
 
-
 module.exports = env => {
   const isProduction = env.NODE_ENV;
 
@@ -47,6 +46,17 @@ module.exports = env => {
             },
           ],
         },
+        {
+          test: /\.(png|jpg|gif|jpeg)$/i,
+          use: [
+            {
+              loader: "file-loader",
+              options: {
+                limit: 8192,
+              },
+            },
+          ],
+        },
       ]
     },
     devtool: "source-map",
@@ -56,7 +66,7 @@ module.exports = env => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: "./src/index.html",
+        template: "./src/public/index.html",
       }),
       new MiniCssExtractPlugin({
         filename: "style.css",
