@@ -1,16 +1,14 @@
-# Create components in different ways, using:  
+# Task2
 
-1. React.CreateElement; 
+### Description
 
-2. React.Component; 
+Create package.json file and install React, Redux, React-Redux, React-Router, Jest. Install and configure Webpack & Babel to get build artifact by running npm command.  
 
-3. React.PureComponent;
-
-4. Functional component. 
+Set DEV and PROD build configuration. Use env variables, dev server, optimizations for PROD build. Set up testing. You should have test command in your package.json file, which will run your future tests. Don’t use any React boilerplate (like create-react-app) for this task. 
  
-Evaluation criteria* 
+*Evaluation criteria* 
  
-2 - Install blank create-react-app application; 
-3 - Render blank message (Hello World) with React; 
-4 - Use at least 2 methods of creating react components; 
-5 - Use all methods which mentioned in task, to create React components, installed and used all extensions. 
+1. Installed React, Redux, React-Redux, React-Router, Jest; 
+2. Configured Webpack; 
+3. Configured Babel.  Configured tests script; 
+4. Have DEV and PROD build commands (use env variables). 
