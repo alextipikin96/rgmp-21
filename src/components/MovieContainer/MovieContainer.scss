@@ -1,0 +1,13 @@
+@import "../../assets/scss/colors";
+
+.MovieContainer {
+  margin-top: 1em;
+  background-color: $dark;
+
+  &-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid $grey-light;
+  }
+}

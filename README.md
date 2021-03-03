@@ -1,14 +1,15 @@
-# Task2
+# Task3
 
 ### Description
 
-Create package.json file and install React, Redux, React-Redux, React-Router, Jest. Install and configure Webpack & Babel to get build artifact by running npm command.  
+Write components implementing HTML markup for required design for home page of InVision prototype (Only UI part). For this part, no need to implement API calls and routing, the task can be done with mocked data. 
 
-Set DEV and PROD build configuration. Use env variables, dev server, optimizations for PROD build. Set up testing. You should have test command in your package.json file, which will run your future tests. Don’t use any React boilerplate (like create-react-app) for this task. 
+
+Use ErrorBoundary component for catching and displaying errors https://reactjs.org/docs/error-boundaries.html. You could create one component and wrap all your application or use several components. 
  
-*Evaluation criteria* 
- 
-1. Installed React, Redux, React-Redux, React-Router, Jest; 
-2. Configured Webpack; 
-3. Configured Babel.  Configured tests script; 
-4. Have DEV and PROD build commands (use env variables). 
+*Evaluation criteria*
+
+1 - Markup is done with React Components and React Fragments (parent-child); 
+2 - Apply styles (no need to do pixel perfect and strict colors following); 
+3 - Use PropTypes; 
+4 - Use <ErrorBoundary> component for catching and displaying errors. 

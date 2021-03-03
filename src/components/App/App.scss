@@ -1,0 +1,19 @@
+@import "../../assets/scss/colors";
+
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto;
+  font-weight: 300;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: $grey-light;
+}
+
+.App {
+  margin: auto;
+  margin: 3em auto 3em auto;
+  max-width: 1200px;
+}

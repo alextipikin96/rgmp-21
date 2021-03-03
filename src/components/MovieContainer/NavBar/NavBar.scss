@@ -1,0 +1,20 @@
+@import "../../../assets/scss/colors";
+
+.NavBar {
+  display: flex;
+  color: $white;
+  margin-left: 65px;
+  padding: 0;
+
+  li {
+    cursor: pointer;
+    font-weight: 400;
+    list-style-type: none;
+    margin-right: 2.5em;
+
+    &.active,
+    &:hover {
+      border-bottom: 2px solid $pink;
+    }
+  }
+}
