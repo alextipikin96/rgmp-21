@@ -2,12 +2,14 @@
 
 .MovieContainer {
   margin-top: 1em;
+  padding: 0em 3em;
   background-color: $dark;
 
   &-navigation {
+    font-size: 1.2em;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 3px solid $grey-light;
+    border-bottom: 2px solid $grey-light;
   }
 }

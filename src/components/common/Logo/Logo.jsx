@@ -3,6 +3,6 @@ import "./Logo.scss";
 
 export default () => (
   <div className="logo">
-    <span>netflix</span>roulette
+    <span className="logo-netfilx">netflix</span>roulette
   </div>
 );

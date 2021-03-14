@@ -1,47 +1,20 @@
 @import "../../assets/scss/colors";
+@import "../../assets/scss/mixins";
 
 .Header {
-  &-image {
-    &::before {
-      content: "";
-      position: absolute;
-      width: 1200px;
-      height: 400px;
-      backdrop-filter: blur(5px);
-    }
-
-    height: 400px;
-    background-image: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)),
-    url('../../assets/img/netflixlist.jpeg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100% 100%;
-  }
+  padding: 1em 3em;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../assets/img/netflixlist.jpeg");
+  background-position: center;
+  background-size: 50% 100%;
 
   &-content {
-    position: absolute;
-    width: 1100px;
-    height: 30%;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
     .top-panel {
       display: flex;
       justify-content: space-between;
 
-      &-label {
-        font-size: 24px;
-        color: $pink;
-
-        span {
-          font-weight: bold;
-        }
-      }
-
       .btn-add-movie {
         cursor: pointer;
-        font-size: 20px;
+        font-size: 1.3em;
         border: none;
         border-radius: 5px;
         font-weight: 500;
@@ -67,7 +40,7 @@
     .search-panel {
       display: flex;
       flex-wrap: wrap;
-      margin: 60px;
+      margin: 20px 60px 120px;
 
       &-label {
         color: $white;
@@ -79,6 +52,7 @@
       }
 
       &-input {
+        color: $white;
         background-color: rgba(31, 31, 31, 0.6);
         flex: 2;
         font-size: 20px;
@@ -89,30 +63,14 @@
       }
 
       &-button {
-        color: $white;
-        background-color: $pink;
-        margin-left: 0.5em;
-        cursor: pointer;
-        border: none;
-        outline: none;
-        font-weight: 400;
-        padding: 15px 0px;
-        width: 250px;
-        font-size: 25px;
-        letter-spacing: 1px;
-        border-radius: 5px;
-
-        &:hover {
-          background-color: #f66370;
-        }
-
-        &:active {
-          background-color: #c4414d;
-        }
-
-        &:focus {
-          box-shadow: 0 0 0 0.2rem rgb(246 82 97 / 50%);
-        }
+        @include btn(
+          250px,
+          $white,
+          none,
+          $pink,
+          $pink-light,
+          $pink-dark
+        );
       }
     }
   }

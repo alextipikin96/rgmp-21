@@ -2,15 +2,14 @@
 
 .NavBar {
   display: flex;
-  color: $white;
-  margin-left: 65px;
   padding: 0;
+  color: $white;
 
   li {
     cursor: pointer;
     font-weight: 400;
     list-style-type: none;
-    margin-right: 2.5em;
+    margin-right: 2em;
 
     &.active,
     &:hover {
