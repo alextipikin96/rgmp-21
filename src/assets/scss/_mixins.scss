@@ -1,0 +1,28 @@
+@import "./colors";
+
+@mixin btn($width, $color, $border, $bg-color, $bg-hover, $bg-active) {
+  width: $width;
+  color: $color;
+  border: $border;
+  background-color: $bg-color;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: 400;
+  margin-left: 0.5em;
+  padding: 15px 0px;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  outline: none;
+
+  &:hover {
+    background-color: $bg-hover;
+  }
+
+  &:active {
+    background-color: $bg-active;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgb(246 82 97 / 50%);
+  }
+}

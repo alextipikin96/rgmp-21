@@ -1,0 +1,85 @@
+@import "../../assets/scss/colors";
+@import "../../assets/scss/mixins";
+
+.EditMovie {
+  position: absolute;
+  margin: auto;
+  top: 150px;
+  right: 35%;
+  left: 35%;
+  z-index: 99;
+  background: $dark;
+  min-height: 600px;
+  min-width: 600px;
+  box-shadow: 0 0 20px rgb(0 0 0 / 50%);
+  padding: 40px 80px;
+
+  &-btn-close {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 2em;
+    color: $white;
+  }
+
+  &-title {
+    user-select: none;
+    font-size: 3em;
+    color: $white;
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      user-select: none;
+      font-weight: 400;
+      font-size: 1.1em;
+      letter-spacing: 1px;
+      margin-top: 2em;
+      margin-bottom: 0.5em;
+      color: $pink;
+    }
+
+    input {
+      font-size: 1.2em;
+      padding: 10px;
+      background-color: $grey-dark;
+      border: none;
+      border-radius: 3px;
+      color: $white;
+    }
+  }
+
+  &-btns-group {
+    margin: 3em 0;
+    display: flex;
+    justify-content: flex-end;
+
+    .btn {
+      &-reset {
+        @include btn(
+          150px,
+          $pink,
+          2px solid $pink,
+          $dark,
+          $grey-dark,
+          $grey-light
+        );
+      }
+
+      &-submit {
+        @include btn(
+          150px,
+          $white,
+          none,
+          $pink,
+          $pink-light,
+          $pink-dark
+        );
+      }
+    }
+  }
+}

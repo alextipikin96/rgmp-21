@@ -1,0 +1,67 @@
+@import "../../assets/scss/colors";
+
+.DeleteMovie {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  margin: auto;
+  top: 150px;
+  right: 35%;
+  left: 35%;
+  z-index: 99;
+  background: $dark;
+  min-width: 600px;
+  box-shadow: 0 0 20px rgb(0 0 0 / 50%);
+  padding: 40px 80px;
+  border-radius: 5px;
+
+  &-btn-close {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 2em;
+    color: $white;
+  }
+
+  &-title {
+    user-select: none;
+    font-size: 3em;
+    color: $white;
+    margin-bottom: .5em;
+  }
+
+  &-message {
+    font-size: 1.5em;
+    color: $white;
+    margin-bottom: 2em;
+  }
+
+  &-btn-confirm {
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: 400;
+    margin-left: 0.5em;
+    padding: 15px 0px;
+    width: 150px;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    align-self: flex-end;
+    color: $white;
+    background-color: $pink;
+    border: none;
+    outline: none;
+
+    &:hover {
+      background-color: $pink-light;
+    }
+
+    &:active {
+      background-color: $pink-dark;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgb(246 82 97 / 50%);
+    }
+  }
+}

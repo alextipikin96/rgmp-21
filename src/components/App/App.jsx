@@ -1,70 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import MovieContainer from "../MovieContainer";
-import pictures from "../../assets/img/index"
+import AddMovie from "../AddMovie";
+import EditMovie from "../EditMovie";
+import DeleteMovie from "../DeleteMovie";
+import movies from "../../static/movies";
+
 import "./App.scss";
 
 export default () => {
-  const {
-    pulpFiction,
-    bohemian,
-    killBill,
-    avengers,
-    inception,
-    reserviorDogs
-  } = pictures;
+  const [isEditOpen, setIsEditOpen] = useState(false);
+  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+  const [isAddOpen, setIsAddOpen] = useState(false);
 
-  const movies = [
-    {
-      id: 0,
-      title: "Pulp Fiction",
-      description: "Action and Adventure",
-      picture: pulpFiction,
-      releaseDate: 1994
-    },
-    {
-      id: 1,
-      title: "Bohemian Rapsody",
-      description: "Drama, Biography, Music",
-      picture: bohemian,
-      releaseDate: 2018
-    },
-    {
-      id: 3,
-      title: "Kill Bill: Vol 2",
-      description: "Oscar winning Movie",
-      picture: killBill,
-      releaseDate: 2004
-    },
-    {
-      id: 4,
-      title: "Avegers: War of infinity",
-      description: "Action & Adventure",
-      picture: avengers,
-      releaseDate: 2018
-    },
-    {
-      id: 5,
-      title: "Inception",
-      description: "Action & Adventure",
-      picture: inception,
-      releaseDate: 2010
-    },
-    {
-      id: 6,
-      title: "Reservior Dogs",
-      description: "Oscar winnig Movie",
-      picture: reserviorDogs,
-      releaseDate: 1992
-    },
-  ];
+  const showEditModal = () => {
+    setIsEditOpen(true);
+  };
+
+  const showDeleteModal = () => {
+    setIsDeleteOpen(true);
+  };
+
+  const showAddModal = () => {
+    setIsAddOpen(true);
+  };
+
+  const closeEditModal = () => {
+    setIsEditOpen(false);
+  };
+
+  const closeDeleteModal = () => {
+    setIsDeleteOpen(false);
+  };
+
+  const closeAddModal = () => {
+    setIsAddOpen(false);
+  }
+
+  const isModalOpen = isEditOpen || isDeleteOpen || isAddOpen ? " blur" : "";
 
   return (
-    <div className="App">
-      <Header />
-      <MovieContainer movies={movies} />
-      <Footer />
-    </div>
+    <>
+      <div className={`App${isModalOpen}`}>
+        <Header showAddModal={showAddModal} />
+        <MovieContainer
+          movies={movies}
+          showEditModal={showEditModal}
+          showDeleteModal={showDeleteModal}
+        />
+        <Footer />
+      </div>
+      {isEditOpen && <EditMovie closeEditModal={closeEditModal} />}
+      {isDeleteOpen && <DeleteMovie closeDeleteModal={closeDeleteModal} />}
+      {isAddOpen && <AddMovie closeAddModal={closeAddModal} />}
+    </>
   )
 };
