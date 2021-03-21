@@ -6,21 +6,24 @@ import FilterPanel from "./FilterPanel";
 import ResultCount from "./ResultCount";
 import "./MovieContainer.scss";
 
-export default ({ movies, showEditModal, showDeleteModal }) => {
+export default ({ movies, selectMovie, deleteMovie, openEditModal, openDeleteModal }) => {
   return (
-    <div className="MovieContainer">
-      <div className="MovieContainer-navigation">
+    <main className="MovieContainer">
+      <div className="Navigation">
         <NavBar />
         <FilterPanel />
       </div>
       <ResultCount movies={movies}/>
       <ErrorBoundary isEverythingOk={true}>
         <MovieList
-          showEditModal={showEditModal}
-          showDeleteModal={showDeleteModal}
-          movies={movies} />
+          movies={movies}
+          selectMovie={selectMovie}
+          deleteMovie={deleteMovie}
+          openEditModal={openEditModal}
+          openDeleteModal={openDeleteModal}
+        />
       </ErrorBoundary>
-    </div>
+    </main>
   )
 
 };

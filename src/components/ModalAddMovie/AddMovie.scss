@@ -1,8 +1,9 @@
 @import "../../assets/scss/colors";
 @import "../../assets/scss/mixins";
 
-.EditMovie {
+.AddMovie {
   position: absolute;
+  text-transform: uppercase;
   margin: auto;
   top: 150px;
   right: 35%;
@@ -16,7 +17,11 @@
 
   &-btn-close {
     cursor: pointer;
+    background: transparent;
     position: absolute;
+    border: none;
+    outline: none;
+    padding: 0;
     right: 20px;
     top: 10px;
     font-size: 2em;

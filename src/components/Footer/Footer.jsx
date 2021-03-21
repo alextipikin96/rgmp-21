@@ -3,7 +3,7 @@ import Logo from "../common/Logo";
 import "./Footer.scss";
 
 export default () => (
-  <div className="Footer">
+  <footer className="Footer">
     <Logo />
-  </div>
+  </footer>
 );

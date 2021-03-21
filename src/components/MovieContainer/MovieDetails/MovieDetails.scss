@@ -1,0 +1,67 @@
+@import "../../../assets/scss/colors";
+
+.MovieDetails {
+  position: relative;
+  
+  &__btn-search {
+    position: absolute;
+    right: 0;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5em 0;
+
+    &-image {
+      width: 280px;
+      height: 400px;
+    }
+
+    &-info {
+      color: $white;
+      padding: 0px 40px 30px;
+      display: flex;
+      flex-direction: column;
+      // justify-content: space-evenly;
+
+      &-header {
+        display: flex;
+        align-items: center;
+
+        &-title {
+          font-size: 4em;
+        }
+        &-rating {
+          color: #7cb342; //make var
+          margin-left: 1em;
+          width: 65px;
+          line-height: 65px;
+          font-size: 1.6em;
+          border-radius: 50%;
+          border: 1px solid #ffffff80;
+          text-align: center;
+        }
+
+      }
+      
+      &-genre {
+        font-size: 1.2em;
+      }
+
+      &-subtitle{
+        display: flex;
+        margin: 0.5em 0;
+        font-size: 1.7em;
+        justify-content: space-between;
+        max-width: 170px;
+        color: $pink;
+        font-weight: bold;
+      }
+
+      &-description {
+        font-size: 1.2em;
+      }
+    }
+  }
+}
