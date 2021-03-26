@@ -2,58 +2,44 @@ import React, { useState } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import MovieContainer from "../MovieContainer";
-import AddMovie from "../AddMovie";
-import EditMovie from "../EditMovie";
-import DeleteMovie from "../DeleteMovie";
-import movies from "../../static/movies";
-
+import films from "../../static/movies";
 import "./App.scss";
 
 export default () => {
-  const [isEditOpen, setIsEditOpen] = useState(false);
-  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
-  const [isAddOpen, setIsAddOpen] = useState(false);
+  const [movies, setMovies] = useState(films);
+  const [movieId, setMovieId] = useState(null);
 
-  const showEditModal = () => {
-    setIsEditOpen(true);
+  const handleDeleteMovie = id => {
+    const idx = movies.findIndex(movie => movie.id === id);
+    const newMovieList = [
+      ...movies.slice(0, idx),
+      ...movies.slice(idx + 1)
+    ];
+    setMovies(newMovieList);
   };
 
-  const showDeleteModal = () => {
-    setIsDeleteOpen(true);
+  const handleSelectMovie = id => {
+    setMovieId(id);
   };
 
-  const showAddModal = () => {
-    setIsAddOpen(true);
+  const handleCloseMovie = () => {
+    setMovieId(null);
   };
-
-  const closeEditModal = () => {
-    setIsEditOpen(false);
-  };
-
-  const closeDeleteModal = () => {
-    setIsDeleteOpen(false);
-  };
-
-  const closeAddModal = () => {
-    setIsAddOpen(false);
-  }
-
-  const isModalOpen = isEditOpen || isDeleteOpen || isAddOpen ? " blur" : "";
 
   return (
-    <>
-      <div className={`App${isModalOpen}`}>
-        <Header showAddModal={showAddModal} />
-        <MovieContainer
-          movies={movies}
-          showEditModal={showEditModal}
-          showDeleteModal={showDeleteModal}
-        />
-        <Footer />
-      </div>
-      {isEditOpen && <EditMovie closeEditModal={closeEditModal} />}
-      {isDeleteOpen && <DeleteMovie closeDeleteModal={closeDeleteModal} />}
-      {isAddOpen && <AddMovie closeAddModal={closeAddModal} />}
-    </>
-  )
+    <div className="App">
+      <Header
+        movieId={movieId}
+        movies={movies}
+        closeMovie={handleCloseMovie}
+      />
+      <MovieContainer
+        movies={movies}
+        movieId={movieId}
+        selectMovie={handleSelectMovie}
+        deleteMovie={handleDeleteMovie}
+      />
+      <Footer />
+    </div>
+  );
 };

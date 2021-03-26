@@ -4,43 +4,52 @@
 .Header {
   padding: 1em 3em;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../assets/img/netflixlist.jpeg");
-  background-position: center;
-  background-size: 50% 100%;
+  background-size: cover;
 
-  &-content {
-    .top-panel {
-      display: flex;
-      justify-content: space-between;
+  &__top-panel {
+    display: flex;
+    justify-content: space-between;
 
-      .btn-add-movie {
-        cursor: pointer;
-        font-size: 1.3em;
-        border: none;
-        border-radius: 5px;
-        font-weight: 500;
-        background-color: rgba(181, 181, 181, .4);
-        padding: 8px 20px;
-        letter-spacing: 1px;
-        color: $pink;
-
-        &:hover {
-          background-color: rgb(89, 89, 89, .4);
-        }
-
-        &:active {
-          background-color: rgb(89, 89, 89, .1);
-        }
-
-        &:focus {
-          outline: none;
-        }
-      }
+    .btn-search {
+      transform: scale(-1, 1);
+      cursor: pointer;
+      outline: none;
+      border: none;
+      background: none;
     }
 
+    .btn-add-movie {
+      cursor: pointer;
+      border: none;
+      text-transform: uppercase;
+      font-size: 1.3em;
+      border-radius: 5px;
+      font-weight: 500;
+      background-color: $grey-light;
+      background-color: rgba(85, 85, 85, 0.7); //make a var
+      padding: 8px 20px;
+      letter-spacing: 1px;
+      color: $pink;
+
+      &:hover {
+        background-color: rgb(89, 89, 89, .4);
+      }
+
+      &:active {
+        background-color: rgb(89, 89, 89, .1);
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__content {    
     .search-panel {
       display: flex;
       flex-wrap: wrap;
-      margin: 20px 60px 120px;
+      margin: 40px 60px 125px;
 
       &-label {
         color: $white;
@@ -49,28 +58,32 @@
         font-weight: 100;
         margin-bottom: 30px;
         letter-spacing: 2px;
+        text-transform: uppercase;
       }
 
       &-input {
         color: $white;
-        background-color: rgba(31, 31, 31, 0.6);
+        background-color: rgba(31, 31, 31, 0.8); //make a var
         flex: 2;
         font-size: 20px;
-        padding: 10px;
+        padding-left: 20px;
         width: 50%;
         border: none;
         border-radius: 5px;
+        height: 60px;
       }
 
       &-button {
         @include btn(
-          250px,
+          240px,
           $white,
           none,
           $pink,
           $pink-light,
           $pink-dark
         );
+        text-transform: uppercase;
+        line-height: 30px;
       }
     }
   }
