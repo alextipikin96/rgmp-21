@@ -1,26 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Header from "../Header";
 import Footer from "../Footer";
 import MovieContainer from "../MovieContainer";
-import films from "../../static/movies";
+import Context from "../common/Context";
+import { fetchMovies } from "../../redux/actions";
 import "./App.scss";
 
 export default () => {
-  const [movies, setMovies] = useState(films);
-  const [movieId, setMovieId] = useState(null);
+  const dispatch = useDispatch();
+  const movies = useSelector((state) => state.movies.movies);
+  const [processingMovieId, setProcessingMovieId] = useState(0);
+  const setMovieId = id => setProcessingMovieId(id);
 
-  const handleDeleteMovie = id => {
-    const idx = movies.findIndex(movie => movie.id === id);
-    const newMovieList = [
-      ...movies.slice(0, idx),
-      ...movies.slice(idx + 1)
-    ];
-    setMovies(newMovieList);
-  };
-
-  const handleSelectMovie = id => {
-    setMovieId(id);
-  };
+  useEffect(() => {
+    dispatch(fetchMovies());
+  }, [dispatch]);
 
   const handleCloseMovie = () => {
     setMovieId(null);
@@ -28,18 +23,11 @@ export default () => {
 
   return (
     <div className="App">
-      <Header
-        movieId={movieId}
-        movies={movies}
-        closeMovie={handleCloseMovie}
-      />
-      <MovieContainer
-        movies={movies}
-        movieId={movieId}
-        selectMovie={handleSelectMovie}
-        deleteMovie={handleDeleteMovie}
-      />
-      <Footer />
+      <Context.Provider value={{ setMovieId, processingMovieId }}>
+        <Header movies={movies} closeMovie={handleCloseMovie} />
+        <MovieContainer movies={movies} />
+        <Footer />
+      </Context.Provider>
     </div>
   );
 };

@@ -10,4 +10,12 @@
     list-style-type: none;
     margin-bottom: 3em;
   }
-};
+}
+
+.noFound {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 3em;
+  padding-bottom: 2em;
+}

@@ -1,0 +1,52 @@
+@import "../../../assets/scss/colors";
+
+.CardActionsMenu {
+  position: absolute;
+  border-radius: 5px;
+  right: 15px;
+  top: 15px;
+  background-color: $dark;
+  width: 200px;
+
+  &-btn {
+    margin-top: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    &-close {
+      cursor: pointer;
+      padding: 0;
+      margin-right: 5px;
+      border: none;
+      outline: none;
+      background: none;
+      align-self: flex-end;
+
+      &:hover {
+        color: $white;
+      }
+    }
+
+    &-edit,
+    &-delete {
+      cursor: pointer;
+      background: inherit;
+      border: none;
+      outline: none;
+      display: flex;
+      color: $white;
+      padding-left: 1em;
+      font-size: 1.2em;
+      padding-top: 3px;
+      padding-bottom: 3px;
+      margin-bottom: 10px;
+      transition: 0.2s ease-out;
+
+      &:hover {
+        color: $white;
+        background-color: $pink;
+      }
+    }
+  }
+}

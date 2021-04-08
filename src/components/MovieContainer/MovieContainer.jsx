@@ -1,29 +1,18 @@
 import React from "react";
-import MovieList from "./MovieList"
+import MovieList from "./MovieList";
 import ErrorBoundary from "../ErrorBoundary";
-import NavBar from "./NavBar";
-import FilterPanel from "./FilterPanel";
 import ResultCount from "./ResultCount";
+import MovieNavPanel from "./MovieNavPanel";
 import "./MovieContainer.scss";
 
-export default ({ movies, selectMovie, deleteMovie, openEditModal, openDeleteModal }) => {
+export default ({ movies }) => {
   return (
     <main className="MovieContainer">
-      <div className="Navigation">
-        <NavBar />
-        <FilterPanel />
-      </div>
-      <ResultCount movies={movies}/>
+      <MovieNavPanel />
+      <ResultCount />
       <ErrorBoundary isEverythingOk={true}>
-        <MovieList
-          movies={movies}
-          selectMovie={selectMovie}
-          deleteMovie={deleteMovie}
-          openEditModal={openEditModal}
-          openDeleteModal={openDeleteModal}
-        />
+        <MovieList movies={movies} />
       </ErrorBoundary>
     </main>
-  )
-
+  );
 };

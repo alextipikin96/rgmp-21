@@ -1,47 +1,44 @@
-import React from "react";
+import React, { useContext } from "react";
 import Logo from "../common/Logo";
 import { useToggle } from "../common/hooks/useToggle";
-import AddMovie from "../ModalAddMovie";
+import ModalForm from "../ModalForm";
 import MovieDetails from "../MovieContainer/MovieDetails/MovieDetails";
+import Context from "../common/Context";
 import searchIcon from "../../assets/icons/searchIcon.svg";
 import "./Header.scss";
 
-export default ({ movieId, movies, closeMovie }) => {
+export default ({ movies, closeMovie }) => {
+  const {processingMovieId} = useContext(Context)
   const [isAddModalOpened, setIsAddModalOpened] = useToggle(false);
 
   const handleOpenAddModal = () => setIsAddModalOpened(true);
   const handleCloseAddModal = () => setIsAddModalOpened(false);
 
-  const currentMovie = movies.find(movie => movie.id === movieId);
+  const currentMovie = movies.find((movie) => movie.id === processingMovieId);
   return (
     <>
       <header className="Header">
         <div className="Header__top-panel">
           <Logo />
           {currentMovie ? (
-            <button
-              className="btn-search"
-              onClick={closeMovie}
-            >
+            <button className="btn-search" onClick={closeMovie}>
               <img src={searchIcon} alt="" />
             </button>
           ) : (
-            <button
-              className="btn-add-movie"
-              onClick={handleOpenAddModal}
-            >
+            <button className="btn-add-movie" onClick={handleOpenAddModal}>
               +add movie
             </button>
           )}
         </div>
         <div className="Header__content">
-          {currentMovie
-            ? <MovieDetails currentMovie={currentMovie} />
-            : <HeaderContent />
-          }
+          {currentMovie ? (
+            <MovieDetails currentMovie={currentMovie} />
+          ) : (
+            <HeaderContent />
+          )}
         </div>
       </header>
-      {isAddModalOpened && <AddMovie closeAddModal={handleCloseAddModal} />}
+      {isAddModalOpened && <ModalForm closeModalForm={handleCloseAddModal} />}
     </>
   );
 };
