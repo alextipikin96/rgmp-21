@@ -4,29 +4,29 @@ import "./MovieDetails.scss";
 export default ({ currentMovie }) => {
   const {
     title,
-    genre,
-    picture,
-    releaseDate,
-    description,
-    rating,
+    genres,
+    release_date,
+    poster_path,
+    vote_average,
+    overview,
     runtime,
   } = currentMovie;
-
+  
   return (
     <div className="MovieDetails">
       <div className="MovieDetails__content">
-        <img className="MovieDetails__content-image" src={picture} alt={title} />
+        <img className="MovieDetails__content-image" src={poster_path} alt={title} />
         <div className="MovieDetails__content-info">
           <div className="MovieDetails__content-info-header">
             <div className="MovieDetails__content-info-header-title">{title}</div>
-            <div className="MovieDetails__content-info-header-rating">{rating}</div>
+            <div className="MovieDetails__content-info-header-rating">{vote_average}</div>
           </div>
-          <div className="MovieDetails__content-info-genre">{genre}</div>
+          <div className="MovieDetails__content-info-genre">{genres.join(", ")}</div>
           <div className="MovieDetails__content-info-subtitle">
-            <div className="MovieDetails__content-info-subtitle-year">{releaseDate}</div>
+            <div className="MovieDetails__content-info-subtitle-year">{release_date.slice(0, 4)}</div>
             <div className="MovieDetails__content-info-subtitle-runtime">{runtime} min</div>
           </div>
-          <div className="MovieDetails__content-info-description">{description}</div>
+          <div className="MovieDetails__content-info-description">{overview}</div>
         </div>
       </div>
     </div>

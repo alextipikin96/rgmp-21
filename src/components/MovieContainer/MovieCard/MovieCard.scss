@@ -4,7 +4,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  color: #CCCCCC;
+  color: #cccccc;
 
   &:hover {
     .btn-more {
@@ -26,12 +26,12 @@
 
     &-release {
       padding: 0 5px;
-      font-size: .8em;
+      font-size: 0.8em;
       border-radius: 5px;
       border: 1px solid;
 
       &:hover {
-        color: $white
+        color: $white;
       }
     }
   }
@@ -40,7 +40,7 @@
     cursor: pointer;
     height: 450px;
     width: 320px;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
       box-shadow: 0px 0px 5px 5px rgb(255 255 255 / 20%);
@@ -69,62 +69,11 @@
     height: 35px;
     right: 15px;
     top: 15px;
-    transition: .2s ease-in-out;
+    transition: 0.2s ease-in-out;
 
     &:active {
       outline: none;
       border: 1px solid $pink;
-    }
-  }
-
-  &__modal {
-    position: absolute;
-    border-radius: 5px;
-    right: 15px;
-    top: 15px;
-    background-color: $dark;
-    width: 200px;
-
-    &-btn {
-      margin-top: 3px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-
-      &-close {
-        cursor: pointer;
-        padding: 0;
-        margin-right: 5px;
-        border: none;
-        outline: none;
-        background: none;
-        align-self: flex-end;
-        
-        &:hover {
-          color: $white;
-        }
-      }
-
-      &-edit,
-      &-delete {
-        cursor: pointer;
-        background: inherit;
-        border: none;
-        outline: none;
-        display: flex;
-        color: $white;
-        padding-left: 1em;
-        font-size: 1.2em;
-        padding-top: 3px;
-        padding-bottom: 3px;
-        margin-bottom: 10px;
-        transition: 0.2s ease-out;
-
-        &:hover {
-          color: $white;
-          background-color: $pink;
-        }
-      }
     }
   }
 }

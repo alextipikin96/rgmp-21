@@ -1,17 +1,37 @@
 @import "../../../assets/scss/colors";
 
 .FilterPanel {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  text-transform: uppercase;
   color: $white;
 
-  &-release {
-    color: $white;
-    background-color: $dark;
-    border: none;
-    font-size: 1em;
-    padding-right: 5px;
-    margin-left: 2em;
+  &::after {
+    content: "▼";
+    font-size: .6em;
+    display: flex;
+    align-items: center;
 
     &:hover {
+      fill: $pink;
+    }
+  }
+
+  &-sortby {
+    font-weight: 400;
+    margin-right: 200px;
+  }
+
+  &-release {
+    position: absolute;
+    right: 25px;
+    top: -20px;
+    text-transform: uppercase;
+    list-style: none;
+
+    &:hover {
+      cursor: pointer;
       color: $pink;
     }
 
@@ -20,12 +40,17 @@
     }
   }
 
-  &-sortby,
-  &-release {
+  &-item {
     font-weight: 400;
+    min-width: 130px;
+    margin: 0 10px;
+    text-align: center;
+    color: $white;
+    background: $dark;
+    transition: 0.3s ease-in-out;
 
     &:hover {
-      cursor: pointer;
+      background-color: $pink;
     }
   }
 }

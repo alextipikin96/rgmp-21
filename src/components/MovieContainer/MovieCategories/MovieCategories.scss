@@ -1,0 +1,45 @@
+@import "../../../assets/scss/colors";
+
+.MovieCategories {
+  display: flex;
+  padding: 0;
+  color: $white;
+
+  &__btn {
+    position: relative;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: $white;
+    font-size: 1em;
+    font-weight: 400;
+    margin-right: 2em;
+
+    &.active {
+      &::after {
+        position: absolute;
+        margin-bottom: -17px;
+        content: "";
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-bottom: 3px solid $pink;
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+ 
+    &:hover::after {
+      position: absolute;
+      margin-bottom: -17px;
+      content: "";
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      border-bottom: 3px solid $pink;
+    }
+  }
+}
