@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import "./CategorySelector.scss";
 
 export default ({ selectedCategories, chooseCategoryHandler }) => {
-  const allCategories = [
-    "all",
-    "documentary",
-    "comedy",
-    "horror",
-    "crime",
+  const categories = [
+    "Documentary",
+    "Comedy",
+    "Horror",
+    "Crime",
     "Adventure",
     "Science Fiction",
     "Action",
@@ -18,43 +17,45 @@ export default ({ selectedCategories, chooseCategoryHandler }) => {
     "Romance",
   ];
 
-  const categories = allCategories
-    .filter(category => category !== "all")
-    .sort();
-
   const [isVisible, setVisibility] = useState(false);
 
-  const showAllCategories = () => setVisibility(prevState => !prevState);
+  const showAllCategories = () => {
+    setVisibility((prevState) => !prevState);
+  };
 
   return (
     <>
-      <label>genre</label>
+      <label form="genre">genre</label>
       <div className="inputWrapper" onClick={showAllCategories}>
         <div className="selectorIcon" />
         <input
           id="genre"
           value={selectedCategories.join(", ")}
-          placeholder="select genre"
+          placeholder="Select genre"
           disabled
         />
       </div>
       <ul className="categoryList" hidden={!isVisible}>
-        {categories.map((category) => {
-          return (
-            <li className="categoryItem" key={category}>
-              <label className="container">
-                <span>{category}</span>
-                <input
-                  className="checkbox"
-                  type="checkbox"
-                  onClick={() => chooseCategoryHandler(category)}
-                  defaultChecked={!!selectedCategories.includes(category)}
-                />
-                <span className="checkmark" />
-              </label>
-            </li>
-          );
-        })}  
+        {categories.map((category) => (
+          <li className="categoryItem" key={category}>
+            <div className="categoryItem__wrapper">
+              <input
+                id="genres"
+                name="genres"
+                type="checkbox"
+                onChange={() =>
+                  chooseCategoryHandler(
+                    "genres",
+                    selectedCategories.includes(category)
+                      ? selectedCategories.slice(0, selectedCategories.length - 1)
+                      : selectedCategories.concat(category)
+                  )
+                }
+              />
+              <span className="">{category}</span>
+            </div>
+          </li>
+        ))}
       </ul>
     </>
   );

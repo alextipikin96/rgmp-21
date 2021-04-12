@@ -13,6 +13,7 @@ export default () => {
   const [processingMovieId, setProcessingMovieId] = useState(0);
   const setMovieId = id => setProcessingMovieId(id);
 
+  console.log(movies);
   useEffect(() => {
     dispatch(fetchMovies());
   }, [dispatch]);

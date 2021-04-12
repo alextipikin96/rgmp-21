@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useFormik } from "formik";
+import * as yup from "yup";
 import CategorySelector from "../MovieContainer/CategorySelector";
 import Modal from "../common/Modal";
 import DateInput from "../MovieContainer/DateInput";
@@ -8,6 +10,8 @@ import { addMovie, editMovie } from "../../redux/actions";
 import "./ModalForm.scss";
 
 export default ({ isEdit, closeModalForm }) => {
+  const dispatch = useDispatch();
+  const oldMovie = useSelector((state) => state.movies.processingMovie);
   const newMovie = {
     release_date: null,
     poster_path: "",
@@ -16,56 +20,30 @@ export default ({ isEdit, closeModalForm }) => {
     runtime: 0,
     genres: [],
   };
-  const processingMovie = isEdit ? useSelector((state) => state.movies.processingMovie) : newMovie;
-  const [movie, setMovie] = useState(processingMovie);
-  const dispatch = useDispatch();
-  const {
-    id,
-    title,
-    release_date,
-    poster_path,
-    genres,
-    overview,
-    runtime,
-  } = movie;
-  
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const processingMovie = isEdit ? oldMovie : newMovie;
+
+  const submitForm = (movie) => {
     isEdit ? dispatch(editMovie(movie)) : dispatch(addMovie(movie));
     closeModalForm();
   };
 
-  const handleReset = () => {
-    setMovie(processingMovie);
-  };
+  const validationSchema = yup.object().shape({
+    title: yup.string().required("Title is required"),
+    overview: yup.string().required("Overview is required"),
+    runtime: yup.number().required("Must be a positive number"),
+    genres: yup
+      .array()
+      .of(yup.string())
+      .min(1, "1 genre should be selected")
+      .required("required"),
+  });
 
-  const handleChangeCategoryList = (category) => {
-    if (movie.genres.includes(category)) {
-      setMovie((prevState) => {
-        prevState.genres = prevState.genres.filter(
-          (genre) => genre !== category
-        );
-        return prevState;
-      });
-    } else {
-      setMovie((prevState) => {
-        prevState.genres.push(category);
-        return prevState;
-      });
-    }
-  };
-
-  const handleOnValueChange = ({ target: { name, value } }) => {
-    setMovie((prevState) => ({
-      ...prevState,
-      ...{ [name]: value },
-    }));
-  };
-
-  const inputHandler = (key, value) => {
-    setMovie((prevState) => ({ ...prevState, [key]: value }));
-  };
+  const formik = useFormik({
+    initialValues: processingMovie,
+    validationSchema: validationSchema,
+    onSubmit: submitForm,
+  });
 
   return (
     <Modal>
@@ -76,76 +54,99 @@ export default ({ isEdit, closeModalForm }) => {
         <div className="ModalForm-title">
           {isEdit ? "edit movie" : "add movie"}
         </div>
-        <div>
-          <form onSubmit={handleSubmit} className="ModalForm-form">
-            {isEdit && (
-              <>
-                <label htmlFor="id">movie id</label>
-                <input
-                  disabled
-                  style={{ backgroundColor: "#232323" }}
-                  id="id"
-                  name="id"
-                  placeholder={id}
-                  value={id}
-                  onChange={handleOnValueChange}
-                />
-              </>
-            )}
+        <form className="ModalForm-form" onSubmit={formik.handleSubmit}>
+          {isEdit && (
+            <>
+              <label>movie id</label>
+              <input
+                disabled
+                id="id"
+                name="id"
+                type="text"
+                value={formik.values.id}
+              />
+            </>
+          )}
 
-            <label htmlFor="title">title</label>
-            <input
-              id="title"
-              name="title"
-              placeholder="Title here"
-              value={title}
-              onChange={handleOnValueChange}
-            />
+          <label htmlFor="title">title</label>
+          <input
+            id="title"
+            name="title"
+            type="text"
+            placeholder="Title here"
+            onChange={formik.handleChange}
+            value={formik.values.title}
+          />
+          {formik.touched.title && formik.errors.title && (
+            <p className="errorText">{formik.errors.title}</p>
+          )}
 
-            <DateInput startDate={release_date} dateHandler={inputHandler} />
+          <DateInput
+            startDate={formik.values.release_date}
+            dateHandler={formik.setFieldValue}
+          />
 
-            <label htmlFor="movieUrl">movie url</label>
-            <input
-              id="movieUrl"
-              name="movieUrl"
-              placeholder="Movie URL here"
-              value={poster_path}
-              onChange={handleOnValueChange}
-            />
+          <label htmlFor="poster_path">movie url</label>
+          <input
+            id="poster_path"
+            type="text"
+            name="poster_path"
+            placeholder="Movie url here"
+            onChange={formik.handleChange}
+            value={formik.values.poster_path}
+          />
+          {formik.touched.poster_path && formik.errors.poster_path && (
+            <p className="errorText">{formik.errors.poster_path}</p>
+          )}
 
-            <CategorySelector
-              selectedCategories={genres}
-              chooseCategoryHandler={handleChangeCategoryList}
-            />
+          <CategorySelector
+            selectedCategories={formik.values.genres}
+            chooseCategoryHandler={formik.setFieldValue}
+          />
+          {formik.touched.genres && formik.errors.genres && (
+            <p className="errorText">{formik.errors.genres}</p>
+          )}
 
-            <label htmlFor="overview">overview</label>
-            <input
-              id="overview"
-              name="overview"
-              placeholder="Overview here"
-              value={overview}
-              onChange={handleOnValueChange}
-            />
+          <label htmlFor="overview">overview</label>
+          <input
+            id="overview"
+            name="overview"
+            type="text"
+            placeholder="Overview here"
+            onChange={formik.handleChange}
+            value={formik.values.overview}
+          />
+          {formik.touched.overview && formik.errors.overview && (
+            <p className="errorText">{formik.errors.overview}</p>
+          )}
 
-            <label htmlFor="runtime">runtime</label>
-            <input
-              id="runtime"
-              name="runtime"
-              placeholder="Runtime here"
-              value={runtime}
-              onChange={handleOnValueChange}
-            />
+          <label htmlFor="runtime">runtime</label>
+          <input
+            id="runtime"
+            type="text"
+            name="runtime"
+            placeholder="Runtime here"
+            onChange={formik.handleChange}
+            value={formik.values.runtime}
+          />
+          {formik.touched.runtime && formik.errors.runtime && (
+            <p className="errorText">{formik.errors.runtime}</p>
+          )}
 
-            <div className="ModalForm-btns-group">
-              <button className="btn btn-reset" onClick={handleReset}>
-                reset
-              </button>
-              <button className="btn btn-submit" onClick={handleSubmit}>
-                {isEdit ? "SAVE" : "SUBMIT"}
-              </button>
-            </div>
-          </form>
-        </div>
+          <div className="ModalForm-btns-group">
+            <button className="btn btn-reset" onClick={formik.handleReset}>
+              reset
+            </button>
+            <button
+              type="submit"
+              className="btn btn-submit"
+              disabled={!formik.isValid && !formik.dirty}
+              onClick={formik.handleSubmit}
+            >
+              {isEdit ? "SAVE" : "SUBMIT"}
+            </button>
+          </div>
+        </form>
       </div>
     </Modal>
   );

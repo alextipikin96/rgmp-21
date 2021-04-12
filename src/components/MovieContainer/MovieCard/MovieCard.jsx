@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import CardActionsMenu from "../CardActionsMenu";
@@ -11,18 +11,16 @@ import { getMovieById } from "../../../redux/actions";
 import "./MovieCard.scss";
 
 const MovieCard = ({ movie, deleteMovie }) => {
-  let flag;
   const { id, title, release_date, poster_path, genres } = movie;
-  const [isOpen, toggleOpen] = useToggle(flag);
-  const [isDeleteModalOpened, setIsDeleteModalOpened] = useToggle(flag);
-  const [isEditModalOpened, setIsEditModalOpened] = useToggle(flag);
+  const [isOpen, toggleOpen] = useToggle(false);
+  const [isDeleteModalOpened, setIsDeleteModalOpened] = useToggle(false);
+  const [isEditModalOpened, setIsEditModalOpened] = useToggle(false);
   const { setMovieId } = useContext(Context);
   const dispatch = useDispatch();
 
   const toggleContextMenu = () => {
-    /* setMovieId(id); */
     dispatch(getMovieById(id));
-    toggleOpen(!flag);
+    toggleOpen(!isOpen);
   };
 
   const handleSelectMovie = () => {
@@ -30,8 +28,8 @@ const MovieCard = ({ movie, deleteMovie }) => {
     dispatch(getMovieById(id));
   };
 
-  const toggleDelete = () => setIsDeleteModalOpened(!flag);
-  const toggleEdit = () => setIsEditModalOpened(!flag);
+  const toggleDelete = () => setIsDeleteModalOpened(!isDeleteModalOpened);
+  const toggleEdit = () => setIsEditModalOpened(!isEditModalOpened);
 
   return (
     <>

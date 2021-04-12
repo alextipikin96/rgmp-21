@@ -5,11 +5,11 @@ import "react-datepicker/dist/react-datepicker.css";
 
 export default ({ startDate, dateHandler }) => (
   <>
-    <label form="date">release date</label>
+    <label form="release_date">release date</label>
     <div className="calendarIcon"></div>
     <DatePicker
       id="release_date"
-      selected={startDate}
+      selected={(startDate && new Date(startDate)) || null}
       onChange={(date) => dateHandler("release_date", date)}
       placeholderText="Select Date"
     />
