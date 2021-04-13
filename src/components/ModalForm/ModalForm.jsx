@@ -31,7 +31,9 @@ export default ({ isEdit, closeModalForm }) => {
   const validationSchema = yup.object().shape({
     title: yup.string().required("Title is required"),
     overview: yup.string().required("Overview is required"),
-    runtime: yup.number().required("Must be a positive number"),
+    runtime: yup.number().min(1, "Must be a positive number"),
+    poster_path: yup.string().url().required("Movie URL is required"),
+    release_date: yup.date(),
     genres: yup
       .array()
       .of(yup.string())
@@ -54,7 +56,11 @@ export default ({ isEdit, closeModalForm }) => {
         <div className="ModalForm-title">
           {isEdit ? "edit movie" : "add movie"}
         </div>
-        <form className="ModalForm-form" onSubmit={formik.handleSubmit}>
+        <form
+          className="ModalForm-form"
+          onSubmit={formik.handleSubmit}
+          autoComplete="off"
+        >
           {isEdit && (
             <>
               <label>movie id</label>
@@ -85,6 +91,9 @@ export default ({ isEdit, closeModalForm }) => {
             startDate={formik.values.release_date}
             dateHandler={formik.setFieldValue}
           />
+          {formik.touched.release_date && formik.errors.release_date && (
+            <p className="errorText">{formik.errors.release_date}</p>
+          )}
 
           <label htmlFor="poster_path">movie url</label>
           <input
@@ -123,7 +132,7 @@ export default ({ isEdit, closeModalForm }) => {
           <label htmlFor="runtime">runtime</label>
           <input
             id="runtime"
-            type="text"
+            type="number"
             name="runtime"
             placeholder="Runtime here"
             onChange={formik.handleChange}
