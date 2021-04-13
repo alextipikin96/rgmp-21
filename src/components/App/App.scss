@@ -21,3 +21,16 @@ body {
   filter: blur(10px);
   background-color: rgba(46, 49, 49, 1);
 }
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: $grey-light;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $grey-dark;
+  border-radius: 10px;
+}

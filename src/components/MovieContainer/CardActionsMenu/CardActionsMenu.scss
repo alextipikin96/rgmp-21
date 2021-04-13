@@ -9,14 +9,13 @@
   width: 200px;
 
   &-btn {
-    margin-top: 3px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
 
     &-close {
       cursor: pointer;
       padding: 0;
+      margin-top: 3px;
       margin-right: 5px;
       border: none;
       outline: none;

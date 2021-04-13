@@ -53,6 +53,10 @@
       border: none;
       border-radius: 3px;
       color: $white;
+
+      &:focus {
+        outline: none;
+      }
     }
   }
 
@@ -84,6 +88,28 @@
           $pink-dark
         );
       }
+
+      &-disabled {
+        @include btn(
+          150px,
+          $white,
+          none,
+          $grey-light,
+          $grey-light,
+          $grey-light
+        );
+      }
     }
   }
+}
+
+input#id {
+  background-color: $dark;
+  padding: 0;
+}
+
+.errorText {
+  max-width: 440px;
+  margin: 0;
+  color: red;
 }

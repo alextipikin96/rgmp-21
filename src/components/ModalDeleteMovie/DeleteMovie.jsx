@@ -8,11 +8,7 @@ import "./DeleteMovie.scss";
 export default ({ closeDeleteModal }) => {
   const dispatch = useDispatch();
   const processingMovie = useSelector((state) => state.movies.processingMovie);
-
-  const handleDeleteMovie = () => {
-    dispatch(deleteMovie(processingMovie.id));
-    dispatch(closeDeleteModal());
-  };
+  const handleDeleteMovie = () => dispatch(deleteMovie(processingMovie.id));
 
   return (
     <Modal>
