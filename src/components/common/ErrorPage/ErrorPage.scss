@@ -1,0 +1,37 @@
+@import "../../../assets/scss/colors";
+
+.errorWrapper {
+  height: calc(100vh - 67px);
+  padding: 20px;
+  background-color: #232323;
+}
+
+.errorCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 120px;
+
+  & h3 {
+    color: $white;
+    font-size: 3.3em;
+    margin: 0;
+    text-transform: capitalize;
+  }
+}
+
+.errorGoBack {
+  text-transform: uppercase;
+  color: $pink;
+  border: 2px solid $pink;
+  background-color: $dark;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: 400;
+  margin-left: 0.5em;
+  padding: 10px;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  outline: none;
+}

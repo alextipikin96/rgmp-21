@@ -1,4 +1,4 @@
-import error404 from "./noFound404.jpeg";
+import error404 from "./404.jpeg";
 import noMovie from "./noMovie.jpeg";
 
 export default {

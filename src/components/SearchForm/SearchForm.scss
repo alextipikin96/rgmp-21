@@ -1,0 +1,67 @@
+/* .searchForm {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px;
+}
+
+.searchInput {
+  flex-grow: 1;
+  padding: 10px 20px;
+  margin-right: 20px;
+  color: antiquewhite;
+  font-size: 20px;
+  background: rgba(28, 28, 28, 0.7);
+  border: none;
+  border-radius: 5px;
+  outline: #000000;
+}
+
+.searchTitle {
+  padding: 0 50px 30px;
+  font-weight: lighter;
+  text-transform: uppercase;
+  color: antiquewhite;
+  font-size: 50px;
+}
+ */
+
+@import "../../assets/scss/colors";
+@import "../../assets/scss/mixins";
+
+.search-panel {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 40px 60px 125px;
+
+  &-label {
+    color: $white;
+    width: 100%;
+    font-size: 3em;
+    font-weight: 100;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  &-input {
+    color: $white;
+    background-color: rgba(31, 31, 31, 0.8); //make a var
+    flex: 2;
+    font-size: 20px;
+    padding-left: 20px;
+    width: 50%;
+    border: none;
+    border-radius: 5px;
+    height: 60px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &-button {
+    @include btn(240px, $white, none, $pink, $pink-light, $pink-dark);
+    text-transform: uppercase;
+    line-height: 30px;
+  }
+}

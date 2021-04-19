@@ -15,10 +15,12 @@ module.exports = env => {
     entry: "./src/index.js",
     output: {
       path: DIST_DIR,
-      filename: "index_bundle.js"
+      filename: "index_bundle.js",
+      publicPath: "/",
     },
     devServer: {
       contentBase: DIST_DIR,
+      historyApiFallback: true,
       port: 3000
     },
     module: {

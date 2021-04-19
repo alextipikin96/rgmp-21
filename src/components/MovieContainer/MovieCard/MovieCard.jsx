@@ -1,11 +1,11 @@
-import React, { useContext, useRef } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import CardActionsMenu from "../CardActionsMenu";
 import DeleteMovie from "../../ModalDeleteMovie";
 import ModalForm from "../../ModalForm";
 import { useToggle } from "../../common/hooks/useToggle";
-import Context from "../../common/Context";
 import dotsIcon from "../../../assets/icons/dotsIcon.svg";
 import { getMovieById } from "../../../redux/actions";
 import "./MovieCard.scss";
@@ -15,8 +15,9 @@ const MovieCard = ({ movie, deleteMovie }) => {
   const [isOpen, toggleOpen] = useToggle(false);
   const [isDeleteModalOpened, setIsDeleteModalOpened] = useToggle(false);
   const [isEditModalOpened, setIsEditModalOpened] = useToggle(false);
-  const { setMovieId } = useContext(Context);
+
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const toggleContextMenu = () => {
     dispatch(getMovieById(id));
@@ -24,8 +25,7 @@ const MovieCard = ({ movie, deleteMovie }) => {
   };
 
   const handleSelectMovie = () => {
-    setMovieId(id);
-    dispatch(getMovieById(id));
+    history.push(`/movie/${movie.id}`);
   };
 
   const toggleDelete = () => setIsDeleteModalOpened(!isDeleteModalOpened);
