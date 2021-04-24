@@ -1,24 +1,28 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchMovies } from "../../../redux/actions";
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { useToggle } from "../../common/hooks/useToggle";
 import "./FilterPanel.scss";
 
 export default () => {
   const sortOptions = ["release date", "rating"];
-  const filterGenre = useSelector(state => state.movies.filterGenre);
+  const history = useHistory();
+  const { filterGenre, search } = useSelector((state) => state.movies);
   const [optionsVisibility, setOptionsVisibility] = useToggle(false);
   const [currentOption, setCurrentOption] = useState(sortOptions[0]);
-  const dispatch = useDispatch();
 
   const showAllOptions = () => {
     setOptionsVisibility(true);
   };
 
-  const changeCurrentOption = option => {
+  const changeCurrentOption = (option) => {
     setCurrentOption(option);
     option = option === "release date" ? "release_date" : "vote_average";
-    dispatch(fetchMovies(filterGenre, option));
+    history.push(
+      `/search/${filterGenre ? filterGenre : "all"}/${option ? option : " "}/${
+        search ? search : " /"
+      }`
+    );
   };
 
   return (

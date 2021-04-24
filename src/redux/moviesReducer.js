@@ -2,16 +2,17 @@ import ACTIONS from "./types";
 
 const initialState = {
   movies: [],
-  error: null,
   processingMovie: {
     release_date: new Date(),
-    poster_path: '',
-    title: '',
-    overview: '',
+    poster_path: "",
+    title: "",
+    overview: "",
     runtime: 0,
     genres: []
   },
-  filterGenre: 'all',
+  filterGenre: "all",
+  sortBy: "",
+  search: "",
 };
 
 export const moviesReducer = (state = initialState, action) => {
@@ -28,6 +29,10 @@ export const moviesReducer = (state = initialState, action) => {
       return { ...state, processingMovie: action.payload }
     case ACTIONS.SET_FILTER_GENRES:
       return { ...state, filterGenre: action.payload }
+    case ACTIONS.SET_SORT_BY:
+      return { ...state, sortBy: action.payload }
+    case ACTIONS.SET_SEARCH_BY:
+      return { ...state, search: action.payload }
     default:
       return state;
   }

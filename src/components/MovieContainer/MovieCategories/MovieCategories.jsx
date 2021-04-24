@@ -1,28 +1,25 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { fetchMovies } from "../../../redux/actions";
+import { useSelector } from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
 import "./MovieCategories.scss";
-//rename MovieCategories to MovieCategories
-export default () => {
-  const [filter, setFilter] = useState("all");
-  const dispatch = useDispatch();
-  const handleFilter = category => {
-    dispatch(fetchMovies(category))
-    setFilter(category);
-  }
 
-  const categories = [
-    "all",
-    "documentary",
-    "comedy",
-    "horror",
-    "crime",
-  ];
+export default () => {
+  const categories = ["all", "documentary", "comedy", "horror", "crime"];
+  const { sortBy, search } = useSelector((state) => state.movies);
+  const history = useHistory();
+  const { category: currentCategory } = useParams();
+  const handleFilter = (category) => {
+    history.push(
+      `/search/${category ? category : "all"}/${sortBy ? sortBy : " "}/${
+        search ? search : " /"
+      }`
+    );
+  };
 
   return (
     <div className="MovieCategories">
-      {categories.map(category => {
-        const isActive = filter === category;
+      {categories.map((category) => {
+        const isActive = currentCategory === category;
         const clazz = isActive ? "active" : "";
         return (
           <button

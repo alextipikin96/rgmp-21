@@ -1,8 +1,9 @@
 import React from "react";
 import "./MovieDetails.scss";
 
-export default ({ currentMovie }) => {
+export default ({ movie }) => {
   const {
+    id,
     title,
     genres,
     release_date,
@@ -10,25 +11,30 @@ export default ({ currentMovie }) => {
     vote_average,
     overview,
     runtime,
-  } = currentMovie;
-  
-  return (
-    <div className="MovieDetails">
-      <div className="MovieDetails__content">
-        <img className="MovieDetails__content-image" src={poster_path} alt={title} />
-        <div className="MovieDetails__content-info">
-          <div className="MovieDetails__content-info-header">
-            <div className="MovieDetails__content-info-header-title">{title}</div>
-            <div className="MovieDetails__content-info-header-rating">{vote_average}</div>
-          </div>
-          <div className="MovieDetails__content-info-genre">{genres.join(", ")}</div>
-          <div className="MovieDetails__content-info-subtitle">
-            <div className="MovieDetails__content-info-subtitle-year">{release_date.slice(0, 4)}</div>
-            <div className="MovieDetails__content-info-subtitle-runtime">{runtime} min</div>
-          </div>
-          <div className="MovieDetails__content-info-description">{overview}</div>
+  } = movie;
+  return id == undefined ? (
+    <div className="withoutMovie">Movie wasn't found, choose another</div>
+  ) : (
+    <section className="MovieDetails">
+      <img className="MovieDetails-image" src={poster_path} alt={title} />
+      <article className="MovieDetails-info">
+        <div className="MovieDetails-info-header">
+          <span className="MovieDetails-info-header-title">{title}</span>
+          <span className="MovieDetails-info-header-rating">
+            {vote_average}
+          </span>
         </div>
-      </div>
-    </div>
+        <span className="MovieDetails-info-genre">{genres.join(", ")}</span>
+        <div className="MovieDetails-info-subtitle">
+          <span className="MovieDetails-info-subtitle-year">
+            {release_date.getFullYear()}
+          </span>
+          <span className="MovieDetails-info-subtitle-runtime">
+            {runtime} min
+          </span>
+        </div>
+        <span className="MovieDetails-info-description">{overview}</span>
+      </article>
+    </section>
   );
-}
+};

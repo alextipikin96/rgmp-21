@@ -1,34 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Header from "../Header";
-import Footer from "../Footer";
-import MovieContainer from "../MovieContainer";
-import Context from "../common/Context";
-import { fetchMovies } from "../../redux/actions";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import HomePage from "../HomePage";
+import MovieDetailsPage from "../MovieDetailsPage";
+import ErrorPage from "../common/ErrorPage";
 import "./App.scss";
 
 export default () => {
-  const dispatch = useDispatch();
-  const movies = useSelector((state) => state.movies.movies);
-  const [processingMovieId, setProcessingMovieId] = useState(0);
-  const setMovieId = id => setProcessingMovieId(id);
-
-  console.log(movies);
-  useEffect(() => {
-    dispatch(fetchMovies());
-  }, [dispatch]);
-
-  const handleCloseMovie = () => {
-    setMovieId(null);
-  };
-
   return (
-    <div className="App">
-      <Context.Provider value={{ setMovieId, processingMovieId }}>
-        <Header movies={movies} closeMovie={handleCloseMovie} />
-        <MovieContainer movies={movies} />
-        <Footer />
-      </Context.Provider>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/search/:category/:sortBy/:search" component={HomePage} />
+        <Route path="/movie/:id" component={MovieDetailsPage} />
+        <Route path="*" component={ErrorPage} />
+      </Switch>
+    </Router>
   );
 };
