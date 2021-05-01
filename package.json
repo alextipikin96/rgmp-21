@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --open --hot",
+    "start:next:dev": "next dev",
+    "start:next:prod": "next start",
+    "build:next:prod": "next build",
     "build": "webpack --mode production",
     "test": "jest --collectCoverage"
   },
@@ -17,9 +20,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-sass": "^1.0.1",
     "axios": "^0.21.1",
     "formik": "^2.2.6",
     "jest-svg-transformer": "^1.0.0",
+    "next": "^10.2.0",
+    "next-compose-plugins": "^2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",
@@ -54,13 +61,13 @@
     "react-datepicker": "^3.7.0",
     "react-test-renderer": "^17.0.2",
     "redux-mock-store": "^1.5.4",
-    "sass": "^1.32.8",
+    "sass": "^1.32.12",
     "sass-loader": "^11.0.1",
     "source-map-loader": "^2.0.1",
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^5.1.1",
     "url-loader": "^4.1.1",
-    "webpack": "^5.24.2",
+    "webpack": "^5.36.2",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
   }

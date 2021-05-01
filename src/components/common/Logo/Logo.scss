@@ -1,9 +1,10 @@
-@import "../../../assets/scss/colors";
+@import "../../../../public/scss/colors";
 
 .logo {
   color: $pink;
   font-size: 24px;
   cursor: pointer;
+  text-decoration: none;
 
   &-netfilx {
     font-weight: bold;

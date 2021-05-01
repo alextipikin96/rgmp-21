@@ -4,9 +4,8 @@ import Logo from "../common/Logo";
 import { useToggle } from "../common/hooks/useToggle";
 import ModalForm from "../ModalForm";
 import { addMovie } from "../../redux/actions";
-import "./Header.scss";
 
-export default () => {
+const Header = () => {
   const [isAddModalOpened, setIsAddModalOpened] = useToggle(false);
 
   const handleOpenAddModal = () => setIsAddModalOpened(true);
@@ -46,3 +45,5 @@ export default () => {
     </>
   );
 };
+
+export default Header;

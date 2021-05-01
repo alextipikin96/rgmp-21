@@ -1,12 +1,11 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { useToggle } from "../../common/hooks/useToggle";
-import "./FilterPanel.scss";
 
-export default () => {
+const FilterPanel = () => {
   const sortOptions = ["release date", "rating"];
-  const history = useHistory();
+  const router = useRouter();
   const { filterGenre, search } = useSelector((state) => state.movies);
   const [optionsVisibility, setOptionsVisibility] = useToggle(false);
   const [currentOption, setCurrentOption] = useState(sortOptions[0]);
@@ -15,14 +14,13 @@ export default () => {
     setOptionsVisibility(true);
   };
 
-  const changeCurrentOption = (option) => {
+  const changeCurrentOption = option => {
     setCurrentOption(option);
     option = option === "release date" ? "release_date" : "vote_average";
-    history.push(
-      `/search/${filterGenre ? filterGenre : "all"}/${option ? option : " "}/${
-        search ? search : " /"
-      }`
-    );
+    router.push({
+      pathname: "/search/[category]/[sortBy]/[search]",
+      query: { category: filterGenre, sortBy: option, search },
+    });
   };
 
   return (
@@ -43,3 +41,5 @@ export default () => {
     </div>
   );
 };
+
+export default FilterPanel;

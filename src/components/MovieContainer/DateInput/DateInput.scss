@@ -1,4 +1,4 @@
-@import "../../../assets/scss/colors";
+@import "../../../../public/scss/colors";
 
 .calendarIcon {
   position: relative;
@@ -13,7 +13,7 @@
     height: 30px;
     color: $pink;
     background-size: 30px 30px;
-    background-image: url("../../../assets/icons/calendarIcon.svg");
+    background-image: url("../../../../public/icons/calendarIcon.svg");
     background-repeat: no-repeat;
     z-index: 5;
   }

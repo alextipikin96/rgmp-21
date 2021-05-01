@@ -12,7 +12,7 @@ module.exports = env => {
 
   return {
     mode: isProduction ? "production" : "development",
-    entry: "./src/index.js",
+    entry: ["@babel/polyfill", "./index.jsx"],
     output: {
       path: DIST_DIR,
       filename: "index_bundle.js",
@@ -22,6 +22,27 @@ module.exports = env => {
       contentBase: DIST_DIR,
       historyApiFallback: true,
       port: 3000
+    },
+    devtool: "source-map",
+    resolve: {
+      modules: ["node_modules"],
+      extensions: [".js", ".jsx"]
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: "./src/public/index.html",
+      }),
+      new MiniCssExtractPlugin({
+        filename: "style.css",
+      }),
+      new CleanWebpackPlugin(),
+    ],
+    optimization: {
+      minimize: isProduction,
+      minimizer: [
+        new TerserPlugin(),
+        new OptimizeCSSAssetsPlugin()
+      ],
     },
     module: {
       rules: [
@@ -60,27 +81,6 @@ module.exports = env => {
           ],
         },
       ]
-    },
-    devtool: "source-map",
-    resolve: {
-      modules: ["node_modules"],
-      extensions: [".js", ".jsx"]
-    },
-    plugins: [
-      new HtmlWebpackPlugin({
-        template: "./src/public/index.html",
-      }),
-      new MiniCssExtractPlugin({
-        filename: "style.css",
-      }),
-      new CleanWebpackPlugin(),
-    ],
-    optimization: {
-      minimize: isProduction,
-      minimizer: [
-        new TerserPlugin(),
-        new OptimizeCSSAssetsPlugin()
-      ],
     },
   }
 };

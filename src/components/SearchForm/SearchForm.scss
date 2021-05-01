@@ -1,32 +1,5 @@
-/* .searchForm {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 50px;
-}
-
-.searchInput {
-  flex-grow: 1;
-  padding: 10px 20px;
-  margin-right: 20px;
-  color: antiquewhite;
-  font-size: 20px;
-  background: rgba(28, 28, 28, 0.7);
-  border: none;
-  border-radius: 5px;
-  outline: #000000;
-}
-
-.searchTitle {
-  padding: 0 50px 30px;
-  font-weight: lighter;
-  text-transform: uppercase;
-  color: antiquewhite;
-  font-size: 50px;
-}
- */
-
-@import "../../assets/scss/colors";
-@import "../../assets/scss/mixins";
+@import "../../../public/scss/colors";
+@import "../../../public/scss/mixins";
 
 .search-panel {
   display: flex;

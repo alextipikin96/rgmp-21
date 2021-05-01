@@ -1,14 +1,12 @@
 import React from "react";
+import Router from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import CardActionsMenu from "../CardActionsMenu";
 import DeleteMovie from "../../ModalDeleteMovie";
 import ModalForm from "../../ModalForm";
 import { useToggle } from "../../common/hooks/useToggle";
-import dotsIcon from "../../../assets/icons/dotsIcon.svg";
 import { getMovieById, editMovie } from "../../../redux/actions";
-import "./MovieCard.scss";
 
 const MovieCard = ({ movie, deleteMovie }) => {
   const { id, title, release_date, poster_path, genres } = movie;
@@ -18,7 +16,6 @@ const MovieCard = ({ movie, deleteMovie }) => {
   const oldMovie = useSelector((state) => state.movies.processingMovie);
 
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const toggleContextMenu = () => {
     dispatch(getMovieById(id));
@@ -31,7 +28,7 @@ const MovieCard = ({ movie, deleteMovie }) => {
   };
 
   const handleSelectMovie = () => {
-    history.push(`/movie/${movie.id}`);
+    Router.push(`/movie/${movie.id}`);
   };
 
   const toggleDelete = () => setIsDeleteModalOpened(!isDeleteModalOpened);
@@ -41,7 +38,7 @@ const MovieCard = ({ movie, deleteMovie }) => {
     <>
       <div className="MovieCard">
         <button className="btn-more" onClick={toggleContextMenu}>
-          <img src={dotsIcon} alt="more" />
+          <span>...</span>
         </button>
 
         {isOpen && (
@@ -71,7 +68,7 @@ const MovieCard = ({ movie, deleteMovie }) => {
           formType="edit"
           initialMovie={oldMovie}
           submitHandler={editForm}
-          closeDeleteModal={toggleDelete}
+          closeModalForm={toggleEdit}
         />
       )}
       {isDeleteModalOpened && (

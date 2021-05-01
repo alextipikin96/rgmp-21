@@ -1,12 +1,10 @@
 import React from "react";
-import crossIcon from "../../../assets/icons/crossIcon.svg";
-import "./CardActionsMenu.scss";
 
-export default ({ toggleContextMenu, toggleEdit, toggleDelete }) => (
+ const CardActionsMenu = ({ toggleContextMenu, toggleEdit, toggleDelete }) => (
   <div className="CardActionsMenu">
     <div className="CardActionsMenu-btn" onClick={toggleContextMenu}>
       <button className="CardActionsMenu-btn-close" onClick={toggleContextMenu}>
-        <img src={crossIcon} alt="crossIcon" />
+        <span>X</span>
       </button>
 
       <button className="CardActionsMenu-btn-edit" onClick={toggleEdit}>
@@ -19,3 +17,5 @@ export default ({ toggleContextMenu, toggleEdit, toggleDelete }) => (
     </div>
   </div>
 );
+
+export default CardActionsMenu;

@@ -1,8 +1,7 @@
 import React from "react";
 import MovieCard from "../MovieCard";
-import "./MovieList.scss";
 
-export default ({ movies }) => {
+const MovieList = ({ movies }) => {
   return movies.length ? (
     <ul className="MovieList">
       {movies.map(movie => (
@@ -15,3 +14,5 @@ export default ({ movies }) => {
     <div className="noFound">No movie found</div>
   );
 };
+
+export default MovieList;
