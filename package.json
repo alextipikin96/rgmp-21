@@ -6,11 +6,12 @@
   "scripts": {
     "start": "webpack serve --open --hot",
     "build": "webpack --mode production",
-    "test": "jest"
+    "test": "jest --collectCoverage"
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(css|scss)$": "<rootDir>/node_modules/jest-css-modules"
+      "\\.(css|scss)$": "<rootDir>/node_modules/jest-css-modules",
+      "\\.(jpg|jpeg|png|gif|ttf|eot|svg)$": "<rootDir>/node_modules/jest-mock"
     }
   },
   "author": "",
@@ -18,6 +19,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "formik": "^2.2.6",
+    "jest-svg-transformer": "^1.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",
@@ -34,8 +36,9 @@
     "@babel/preset-env": "^7.13.5",
     "@babel/preset-react": "^7.12.13",
     "@babel/runtime": "^7.13.7",
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.6",
+    "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^5.1.0",
@@ -49,6 +52,8 @@
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "prettier": "2.2.1",
     "react-datepicker": "^3.7.0",
+    "react-test-renderer": "^17.0.2",
+    "redux-mock-store": "^1.5.4",
     "sass": "^1.32.8",
     "sass-loader": "^11.0.1",
     "source-map-loader": "^2.0.1",

@@ -43,6 +43,7 @@ export default ({ selectedCategories, chooseCategoryHandler }) => {
                 id="genres"
                 name="genres"
                 type="checkbox"
+                value={category}
                 onChange={() =>
                   chooseCategoryHandler(
                     "genres",

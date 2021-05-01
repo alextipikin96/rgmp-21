@@ -12,7 +12,6 @@ export default () => {
   const dispatch = useDispatch();
   const { filterGenre, sortBy, search } = useSelector((state) => state.movies);
   const { id } = useParams();
-
   const currentMovie = useSelector((state) => state.movies.processingMovie);
 
   useEffect(() => {

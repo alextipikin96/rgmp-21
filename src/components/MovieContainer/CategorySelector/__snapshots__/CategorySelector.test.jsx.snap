@@ -1,0 +1,566 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategorySelector should render properly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <label
+        form="genre"
+      >
+        genre
+      </label>
+      <div
+        class="inputWrapper"
+      >
+        <div
+          class="selectorIcon"
+        />
+        <input
+          disabled=""
+          id="genre"
+          placeholder="Select genre"
+          value=""
+        />
+      </div>
+      <ul
+        class="categoryList"
+        hidden=""
+      >
+        <li
+          class="categoryItem"
+        >
+          <div
+            class="categoryItem__wrapper"
+          >
+            <input
+              id="genres"
+              name="genres"
+              type="checkbox"
+              value="Documentary"
+            />
+            <span
+              class=""
+            >
+              Documentary
+            </span>
+          </div>
+        </li>
+        <li
+          class="categoryItem"
+        >
+          <div
+            class="categoryItem__wrapper"
+          >
+            <input
+              id="genres"
+              name="genres"
+              type="checkbox"
+              value="Comedy"
+            />
+            <span
+              class=""
+            >
+              Comedy
+            </span>
+          </div>
+        </li>
+        <li
+          class="categoryItem"
+        >
+          <div
+            class="categoryItem__wrapper"
+          >
+            <input
+              id="genres"
+              name="genres"
+              type="checkbox"
+              value="Horror"
+            />
+            <span
+              class=""
+            >
+              Horror
+            </span>
+          </div>
+        </li>
+        <li
+          class="categoryItem"
+        >
+          <div
+            class="categoryItem__wrapper"
+          >
+            <input
+              id="genres"
+              name="genres"
+              type="checkbox"
+              value="Crime"
+            />
+            <span
+              class=""
+            >
+              Crime
+            </span>
+          </div>
+        </li>
+        <li
+          class="categoryItem"
+        >
+          <div
+            class="categoryItem__wrapper"
+          >
+            <input
+              id="genres"
+              name="genres"
+              type="checkbox"
+              value="Adventure"
+            />
+            <span
+              class=""
+            >
+              Adventure
+            </span>
+          </div>
+        </li>
+        <li
+          class="categoryItem"
+        >
+          <div
+            class="categoryItem__wrapper"
+          >
+            <input
+              id="genres"
+              name="genres"
+              type="checkbox"
+              value="Science Fiction"
+            />
+            <span
+              class=""
+            >
+              Science Fiction
+            </span>
+          </div>
+        </li>
+        <li
+          class="categoryItem"
+        >
+          <div
+            class="categoryItem__wrapper"
+          >
+            <input
+              id="genres"
+              name="genres"
+              type="checkbox"
+              value="Action"
+            />
+            <span
+              class=""
+            >
+              Action
+            </span>
+          </div>
+        </li>
+        <li
+          class="categoryItem"
+        >
+          <div
+            class="categoryItem__wrapper"
+          >
+            <input
+              id="genres"
+              name="genres"
+              type="checkbox"
+              value="Family"
+            />
+            <span
+              class=""
+            >
+              Family
+            </span>
+          </div>
+        </li>
+        <li
+          class="categoryItem"
+        >
+          <div
+            class="categoryItem__wrapper"
+          >
+            <input
+              id="genres"
+              name="genres"
+              type="checkbox"
+              value="Animation"
+            />
+            <span
+              class=""
+            >
+              Animation
+            </span>
+          </div>
+        </li>
+        <li
+          class="categoryItem"
+        >
+          <div
+            class="categoryItem__wrapper"
+          >
+            <input
+              id="genres"
+              name="genres"
+              type="checkbox"
+              value="Fantasy"
+            />
+            <span
+              class=""
+            >
+              Fantasy
+            </span>
+          </div>
+        </li>
+        <li
+          class="categoryItem"
+        >
+          <div
+            class="categoryItem__wrapper"
+          >
+            <input
+              id="genres"
+              name="genres"
+              type="checkbox"
+              value="Drama"
+            />
+            <span
+              class=""
+            >
+              Drama
+            </span>
+          </div>
+        </li>
+        <li
+          class="categoryItem"
+        >
+          <div
+            class="categoryItem__wrapper"
+          >
+            <input
+              id="genres"
+              name="genres"
+              type="checkbox"
+              value="Romance"
+            />
+            <span
+              class=""
+            >
+              Romance
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </body>,
+  "container": <div>
+    <label
+      form="genre"
+    >
+      genre
+    </label>
+    <div
+      class="inputWrapper"
+    >
+      <div
+        class="selectorIcon"
+      />
+      <input
+        disabled=""
+        id="genre"
+        placeholder="Select genre"
+        value=""
+      />
+    </div>
+    <ul
+      class="categoryList"
+      hidden=""
+    >
+      <li
+        class="categoryItem"
+      >
+        <div
+          class="categoryItem__wrapper"
+        >
+          <input
+            id="genres"
+            name="genres"
+            type="checkbox"
+            value="Documentary"
+          />
+          <span
+            class=""
+          >
+            Documentary
+          </span>
+        </div>
+      </li>
+      <li
+        class="categoryItem"
+      >
+        <div
+          class="categoryItem__wrapper"
+        >
+          <input
+            id="genres"
+            name="genres"
+            type="checkbox"
+            value="Comedy"
+          />
+          <span
+            class=""
+          >
+            Comedy
+          </span>
+        </div>
+      </li>
+      <li
+        class="categoryItem"
+      >
+        <div
+          class="categoryItem__wrapper"
+        >
+          <input
+            id="genres"
+            name="genres"
+            type="checkbox"
+            value="Horror"
+          />
+          <span
+            class=""
+          >
+            Horror
+          </span>
+        </div>
+      </li>
+      <li
+        class="categoryItem"
+      >
+        <div
+          class="categoryItem__wrapper"
+        >
+          <input
+            id="genres"
+            name="genres"
+            type="checkbox"
+            value="Crime"
+          />
+          <span
+            class=""
+          >
+            Crime
+          </span>
+        </div>
+      </li>
+      <li
+        class="categoryItem"
+      >
+        <div
+          class="categoryItem__wrapper"
+        >
+          <input
+            id="genres"
+            name="genres"
+            type="checkbox"
+            value="Adventure"
+          />
+          <span
+            class=""
+          >
+            Adventure
+          </span>
+        </div>
+      </li>
+      <li
+        class="categoryItem"
+      >
+        <div
+          class="categoryItem__wrapper"
+        >
+          <input
+            id="genres"
+            name="genres"
+            type="checkbox"
+            value="Science Fiction"
+          />
+          <span
+            class=""
+          >
+            Science Fiction
+          </span>
+        </div>
+      </li>
+      <li
+        class="categoryItem"
+      >
+        <div
+          class="categoryItem__wrapper"
+        >
+          <input
+            id="genres"
+            name="genres"
+            type="checkbox"
+            value="Action"
+          />
+          <span
+            class=""
+          >
+            Action
+          </span>
+        </div>
+      </li>
+      <li
+        class="categoryItem"
+      >
+        <div
+          class="categoryItem__wrapper"
+        >
+          <input
+            id="genres"
+            name="genres"
+            type="checkbox"
+            value="Family"
+          />
+          <span
+            class=""
+          >
+            Family
+          </span>
+        </div>
+      </li>
+      <li
+        class="categoryItem"
+      >
+        <div
+          class="categoryItem__wrapper"
+        >
+          <input
+            id="genres"
+            name="genres"
+            type="checkbox"
+            value="Animation"
+          />
+          <span
+            class=""
+          >
+            Animation
+          </span>
+        </div>
+      </li>
+      <li
+        class="categoryItem"
+      >
+        <div
+          class="categoryItem__wrapper"
+        >
+          <input
+            id="genres"
+            name="genres"
+            type="checkbox"
+            value="Fantasy"
+          />
+          <span
+            class=""
+          >
+            Fantasy
+          </span>
+        </div>
+      </li>
+      <li
+        class="categoryItem"
+      >
+        <div
+          class="categoryItem__wrapper"
+        >
+          <input
+            id="genres"
+            name="genres"
+            type="checkbox"
+            value="Drama"
+          />
+          <span
+            class=""
+          >
+            Drama
+          </span>
+        </div>
+      </li>
+      <li
+        class="categoryItem"
+      >
+        <div
+          class="categoryItem__wrapper"
+        >
+          <input
+            id="genres"
+            name="genres"
+            type="checkbox"
+            value="Romance"
+          />
+          <span
+            class=""
+          >
+            Romance
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

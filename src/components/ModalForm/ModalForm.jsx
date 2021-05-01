@@ -6,27 +6,10 @@ import CategorySelector from "../MovieContainer/CategorySelector";
 import Modal from "../common/Modal";
 import DateInput from "../MovieContainer/DateInput";
 import crossIcon from "../../assets/icons/crossIcon.svg";
-import { addMovie, editMovie } from "../../redux/actions";
 import "./ModalForm.scss";
 
-export default ({ isEdit, closeModalForm }) => {
-  const dispatch = useDispatch();
-  const oldMovie = useSelector((state) => state.movies.processingMovie);
-  const newMovie = {
-    release_date: null,
-    poster_path: "",
-    title: "",
-    overview: "",
-    runtime: 0,
-    genres: [],
-  };
-
-  const processingMovie = isEdit ? oldMovie : newMovie;
-
-  const submitForm = (movie) => {
-    isEdit ? dispatch(editMovie(movie)) : dispatch(addMovie(movie));
-    closeModalForm();
-  };
+export default ({ formType, initialMovie, submitHandler, closeModalForm }) => {
+  const isEdit = formType === "edit";
 
   const validationSchema = yup.object().shape({
     title: yup.string().required("Title is required"),
@@ -42,15 +25,15 @@ export default ({ isEdit, closeModalForm }) => {
   });
 
   const formik = useFormik({
-    initialValues: processingMovie,
+    initialValues: initialMovie,
     validationSchema: validationSchema,
-    onSubmit: submitForm,
+    onSubmit: submitHandler,
   });
 
   return (
     <Modal>
       <div className="ModalForm">
-        <button className="ModalForm-btn-close" onClick={closeModalForm}>
+        <button data-testid="closeForm" className="ModalForm-btn-close" onClick={closeModalForm}>
           <img src={crossIcon} alt="closeIcon" />
         </button>
         <div className="ModalForm-title">

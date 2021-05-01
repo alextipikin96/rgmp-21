@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import CardActionsMenu from "../CardActionsMenu";
@@ -7,7 +7,7 @@ import DeleteMovie from "../../ModalDeleteMovie";
 import ModalForm from "../../ModalForm";
 import { useToggle } from "../../common/hooks/useToggle";
 import dotsIcon from "../../../assets/icons/dotsIcon.svg";
-import { getMovieById } from "../../../redux/actions";
+import { getMovieById, editMovie } from "../../../redux/actions";
 import "./MovieCard.scss";
 
 const MovieCard = ({ movie, deleteMovie }) => {
@@ -15,6 +15,7 @@ const MovieCard = ({ movie, deleteMovie }) => {
   const [isOpen, toggleOpen] = useToggle(false);
   const [isDeleteModalOpened, setIsDeleteModalOpened] = useToggle(false);
   const [isEditModalOpened, setIsEditModalOpened] = useToggle(false);
+  const oldMovie = useSelector((state) => state.movies.processingMovie);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -22,6 +23,11 @@ const MovieCard = ({ movie, deleteMovie }) => {
   const toggleContextMenu = () => {
     dispatch(getMovieById(id));
     toggleOpen(!isOpen);
+  };
+
+  const editForm = (movie) => {
+    dispatch(editMovie(movie));
+    toggleEdit();
   };
 
   const handleSelectMovie = () => {
@@ -61,7 +67,12 @@ const MovieCard = ({ movie, deleteMovie }) => {
         <span>{genres.join(", ")}</span>
       </div>
       {isEditModalOpened && (
-        <ModalForm isEdit movie={movie} closeModalForm={toggleEdit} />
+        <ModalForm
+          formType="edit"
+          initialMovie={oldMovie}
+          submitHandler={editForm}
+          closeDeleteModal={toggleDelete}
+        />
       )}
       {isDeleteModalOpened && (
         <DeleteMovie

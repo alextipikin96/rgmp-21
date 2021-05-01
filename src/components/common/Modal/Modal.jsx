@@ -1,19 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import "./Modal.scss";
 
-const modalRoot = document.getElementById("modal-root");
-const modalMessage = document.createElement("div");
+let modalRoot = document.getElementById("modal-root");
+if (!modalRoot) {
+  modalRoot = document.createElement("div");
+  modalRoot.setAttribute("id", "modal-root");
+  document.body.appendChild(modalRoot);
+}
 
 export default (props) => {
-  useEffect(() => {
-    modalRoot.appendChild(modalMessage);
-
-    return () => modalRoot.removeChild(modalMessage);
-  }, []);
-
   return ReactDOM.createPortal(
     <div className="ModalWrapper">{props.children}</div>,
-    modalMessage
+    modalRoot
   );
 };

@@ -3,7 +3,7 @@ import ACTIONS from "./types";
 const initialState = {
   movies: [],
   processingMovie: {
-    release_date: new Date(),
+    release_date: new Date('2020-10-10T03:24:00'),
     poster_path: "",
     title: "",
     overview: "",
