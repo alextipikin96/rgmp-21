@@ -3,7 +3,7 @@ import ACTIONS from "./types";
 
 const apiUrl = "http://localhost:4000/movies";
 
-export const fetchMovies = (genre = "", sortBy = "", search = "") => {
+export const fetchMovies = (genre = " ", sortBy = " ", search = " ") => {
   return dispatch => {
     dispatch(showLoader());
     dispatch(setFilterGenres(genre));

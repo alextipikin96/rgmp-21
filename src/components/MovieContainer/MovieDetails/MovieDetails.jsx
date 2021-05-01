@@ -1,7 +1,6 @@
 import React from "react";
-import "./MovieDetails.scss";
 
-export default ({ movie }) => {
+const MovieDetails = ({ movie }) => {
   const {
     id,
     title,
@@ -38,3 +37,5 @@ export default ({ movie }) => {
     </section>
   );
 };
+
+export default MovieDetails;

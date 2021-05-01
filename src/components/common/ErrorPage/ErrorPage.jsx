@@ -1,12 +1,10 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import Router from "next/router";
 import Footer from "../../Footer";
 import Logo from "../Logo";
-import pic from "../../../assets/img";
-import "./ErrorPage.scss";
 
-export default () => {
-  const history = useHistory();
+const ErrorPage = () => {
+  const backHome = () => Router.push("/");
 
   return (
     <>
@@ -14,8 +12,8 @@ export default () => {
         <Logo />
         <div className="errorCenter">
           <h3>page not found</h3>
-          <img src={pic.error404} width="600" height="440" />
-          <button className="errorGoBack" onClick={() => history.push("/")}>
+          <img width="600" height="440" alt="404" />
+          <button className="errorGoBack" onClick={backHome}>
             go back to home
           </button>
         </div>
@@ -24,3 +22,5 @@ export default () => {
     </>
   );
 };
+
+export default ErrorPage;

@@ -11,8 +11,8 @@ const initialState = {
     genres: []
   },
   filterGenre: "all",
-  sortBy: "",
-  search: "",
+  sortBy: "%20",
+  search: "%20",
 };
 
 export const moviesReducer = (state = initialState, action) => {

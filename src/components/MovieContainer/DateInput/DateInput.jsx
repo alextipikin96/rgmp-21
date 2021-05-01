@@ -1,9 +1,8 @@
 import React from "react";
 import DatePicker from "react-datepicker";
-import "./DateInput.scss";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default ({ startDate, dateHandler }) => (
+const DateInput = ({ startDate, dateHandler }) => (
   <>
     <label form="release_date">release date</label>
     <div className="calendarIcon"></div>
@@ -15,3 +14,5 @@ export default ({ startDate, dateHandler }) => (
     />
   </>
 );
+
+export default DateInput; 

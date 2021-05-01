@@ -1,4 +1,4 @@
-@import "../../../assets/scss/colors";
+@import "../../../../public/scss/colors";
 
 .CardActionsMenu {
   position: absolute;
@@ -21,6 +21,10 @@
       outline: none;
       background: none;
       align-self: flex-end;
+
+      span {
+        font-size: 2em;
+      }
 
       &:hover {
         color: $white;

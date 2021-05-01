@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
-import "./MovieCategories.scss";
+import { useRouter } from "next/router";
 
-export default () => {
+const MovieCategories = () => {
   const categories = ["all", "documentary", "comedy", "horror", "crime"];
   const { sortBy, search } = useSelector((state) => state.movies);
-  const history = useHistory();
-  const { category: currentCategory } = useParams();
+  const router = useRouter();
+    const { category: currentCategory } = useRouter().query;
+
   const handleFilter = (category) => {
-    history.push(
-      `/search/${category ? category : "all"}/${sortBy ? sortBy : " "}/${
-        search ? search : " /"
-      }`
-    );
+    router.push({
+      pathname: "/search/[category]/[sortBy]/[search]",
+      query: { category, sortBy, search },
+    });
   };
 
   return (
@@ -35,3 +34,5 @@ export default () => {
     </div>
   );
 };
+
+export default MovieCategories;

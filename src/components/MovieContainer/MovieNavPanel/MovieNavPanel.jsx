@@ -1,11 +1,13 @@
 import React from "react";
 import MovieCategories from "../MovieCategories";
 import FilterPanel from "../FilterPanel";
-import "./MovieNavPanel.scss";
+/* import "./MovieNavPanel.scss"; */
 
-export default () => (
+ const MovieNavPanel = () => (
   <div className="MovieNavPanel">
     <MovieCategories />
     <FilterPanel />
   </div>
 );
+
+export default MovieNavPanel;

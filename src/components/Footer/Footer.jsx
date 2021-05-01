@@ -1,9 +1,10 @@
 import React from "react";
 import Logo from "../common/Logo";
-import "./Footer.scss";
 
-export default () => (
+const Footer = () => (
   <footer className="Footer">
     <Logo />
   </footer>
 );
+
+export default Footer;

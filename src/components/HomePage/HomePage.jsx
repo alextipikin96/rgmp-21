@@ -5,7 +5,7 @@ import MovieContainer from "../MovieContainer";
 import HeaderContainer from "../HeaderContainer";
 import SearchForm from "../SearchForm/SearchForm";
 
-export default () => {
+const HomePage = () => {
   return (
     <>
       <HeaderContainer>
@@ -17,3 +17,5 @@ export default () => {
     </>
   );
 };
+
+export default HomePage;

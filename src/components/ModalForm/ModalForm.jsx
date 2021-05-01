@@ -1,14 +1,11 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import CategorySelector from "../MovieContainer/CategorySelector";
 import Modal from "../common/Modal";
 import DateInput from "../MovieContainer/DateInput";
-import crossIcon from "../../assets/icons/crossIcon.svg";
-import "./ModalForm.scss";
 
-export default ({ formType, initialMovie, submitHandler, closeModalForm }) => {
+const ModalForm = ({ formType, initialMovie, submitHandler, closeModalForm }) => {
   const isEdit = formType === "edit";
 
   const validationSchema = yup.object().shape({
@@ -34,7 +31,7 @@ export default ({ formType, initialMovie, submitHandler, closeModalForm }) => {
     <Modal>
       <div className="ModalForm">
         <button data-testid="closeForm" className="ModalForm-btn-close" onClick={closeModalForm}>
-          <img src={crossIcon} alt="closeIcon" />
+          <span>X</span>
         </button>
         <div className="ModalForm-title">
           {isEdit ? "edit movie" : "add movie"}
@@ -143,3 +140,5 @@ export default ({ formType, initialMovie, submitHandler, closeModalForm }) => {
     </Modal>
   );
 };
+
+export default ModalForm;

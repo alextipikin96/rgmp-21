@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import "./CategorySelector.scss";
 
-export default ({ selectedCategories, chooseCategoryHandler }) => {
+const CategorySelector = ({ selectedCategories, chooseCategoryHandler }) => {
   const categories = [
     "Documentary",
     "Comedy",
@@ -48,7 +47,10 @@ export default ({ selectedCategories, chooseCategoryHandler }) => {
                   chooseCategoryHandler(
                     "genres",
                     selectedCategories.includes(category)
-                      ? selectedCategories.slice(0, selectedCategories.length - 1)
+                      ? selectedCategories.slice(
+                          0,
+                          selectedCategories.length - 1
+                        )
                       : selectedCategories.concat(category)
                   )
                 }
@@ -61,3 +63,5 @@ export default ({ selectedCategories, chooseCategoryHandler }) => {
     </>
   );
 };
+
+export default CategorySelector;

@@ -1,12 +1,13 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
-import "./Logo.scss";
+import Router from "next/router";
 
-export default () => {
-  const history = useHistory();
+const Logo = () => {
+  const backHome = () => Router.push("/");
   return (
-    <div onClick={() => history.push("/")} className="logo">
+    <div onClick={backHome} className="logo">
       <span className="logo-netfilx">netflix</span>roulette
     </div>
   );
 };
+
+export default Logo;

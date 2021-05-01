@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
+import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import Footer from "../Footer";
 import { fetchMovies, getMovieById } from "../../redux/actions";
 import MovieContainer from "../MovieContainer";
@@ -8,10 +8,10 @@ import HeaderContainer from "../HeaderContainer";
 import MovieDetails from "../MovieContainer/MovieDetails/MovieDetails";
 import MovieDetailsHeader from "../MovieDetailsHeader";
 
-export default () => {
+const MovieDetailsPage = () => {
   const dispatch = useDispatch();
   const { filterGenre, sortBy, search } = useSelector((state) => state.movies);
-  const { id } = useParams();
+  const { id } = useRouter().query;
   const currentMovie = useSelector((state) => state.movies.processingMovie);
 
   useEffect(() => {
@@ -30,3 +30,5 @@ export default () => {
     </>
   );
 };
+
+export default MovieDetailsPage;

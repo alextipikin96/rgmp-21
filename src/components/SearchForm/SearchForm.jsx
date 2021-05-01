@@ -1,20 +1,22 @@
 import React, { useRef } from "react";
+import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import "./SearchForm.scss";
 
-export default () => {
+const Search = () => {
   const searchInput = useRef(null);
-  const history = useHistory();
+  const router = useRouter();
   const { filterGenre, sortBy } = useSelector((state) => state.movies);
 
   const handleSearch = () => {
-    history.push(
-      `/search/${filterGenre ? filterGenre : "all"}/${sortBy ? sortBy : " "}/${
-        searchInput.current.value ? searchInput.current.value : " /"
-      }`
-    );
-    searchInput.current.value = "";
+    router.push({
+      pathname: "/search/[category]/[sortBy]/[search]",
+      query: {
+        category: filterGenre,
+        sortBy,
+        search: searchInput.current.value,
+      },
+    });
+    searchInput.current.value = " ";
   };
 
   return (
@@ -32,3 +34,5 @@ export default () => {
     </div>
   );
 };
+
+export default Search;
